@@ -1,0 +1,81 @@
+  body {
+  margin: 0;
+  padding-top: 0;
+  overflow: auto;
+  background-color: #424242;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-brick-wall.png");
+}
+
+.page {
+  padding: 10px 0;
+  font-family: consolas;
+  font-size:  10px;
+}
+    
+* {
+    text-align: center;
+} 
+ 
+.videos {
+  color: white;
+}
+ 
+.images {
+    position: relative;
+    margin: auto;
+    width: 50%;
+ 
+}
+ 
+#floorplan {
+    align-items: center;
+    top: 0;
+    left: 0;
+    max-height: 230px;
+    max-width: 330px;
+}
+
+#normcam1 {
+    position: fixed;
+    float: left;
+    top: 380px;
+    left: 540px;
+    transform: rotate(90deg);
+}
+ 
+#normcam2 {
+    position: fixed;
+    float: left;
+    top: 255px;
+    left: 540px;
+    transform: rotate(60deg);
+}
+
+#normcam3 {
+    position: fixed;
+    float: left;
+    top: 255px;
+    left: 460px;
+}
+
+#label1 {
+    color: white;
+    position: fixed;
+    top: 400px;
+    left: 610px;
+}
+
+#label2 {
+    color: white;
+    position: fixed;
+    top: 270px;
+    left: 610px;
+}
+
+#label3 {
+    color: white;
+    position: fixed;
+    top: 250px;
+    left: 480px;
+}
+
