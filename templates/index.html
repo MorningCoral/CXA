@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Upload</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">	
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans" rel="stylesheet">
+<link href="../static/css/index.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+	
+<div class="page centered text-center">
+	<img src="../static/images/logo.png" height="100" width="350" alt="Logo" id="logo">
+	<h3>Crime Classification Alert Module</h3>
+	<br/>
+	<br/>	
+	<form id="upload-form" action="{{ url_for('surveillance') }}" method="POST" enctype="multipart/form-data">
+		<div class="input-group">
+		    <label class="input-group-btn">
+		        <span class="btn browsebtn"  >
+		            Browse&hellip; <input type="file" id="uploadBtn" name="file" accept="videos/" style="display: none;" multiple>
+		        </span> 
+		    </label>
+		    <input type="text" id="uploadFile" class="form-control" readonly>
+		</div>
+		<br/>
+		<button type="button" class="btn sendbtn" onclick="clickHidden()">Upload<input id="hiddenbtn" type="submit" style="display: none;"></button>
+	</form>
+	<br/>
+
+	<div class="row" id="loading" style="display: none;">
+    <div style="display:inline-block;"><p class="surveilling">Analysing videos ...</p></div>   
+	</div>
+</body>
+
+<script type="text/javascript">
+document.getElementById("uploadBtn").onchange = function () {
+	var files = this.files;
+	for (var i = 0; i < files.length; i++)
+	{
+	 document.getElementById("uploadFile").value += files[i].name + ' '
+	}
+};
+function clickHidden() {
+	document.getElementById("hiddenbtn").click();
+	document.getElementById("loading").style.display = "block";
+};
+</script>
+</html>

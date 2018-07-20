@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Surveillance</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link href="../static/css/surveillance.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+  <script>
+    {% if station != "None" %}
+     alert("Crime Detected! Alert sent to {{ station }}")
+    {% endif %}
+    {% if stage <3 %}
+     window.setTimeout(function(){
+
+       // Move to a new location or you can do something else
+       window.location.href = "http://127.0.0.1:5000/surveillance";
+
+       }, 10000);
+    {% endif %}
+</script>
+  <div class="container page centered text-center">
+  <div class="container centered">
+  <div class="d-flex flex-row justify-content-center videos">
+    <div class="px-1"><p class="crime">Cam 1: {{ prediction1 }}</p><video height="180vh" autoplay>
+      <source src="{{ video0 }}" type="video/mp4">
+    </video></div>
+    <div class="px-1"><p class="crime">Cam 2: {{ prediction2 }}</p><video height="180vh"  autoplay>
+      <source src="{{ video1 }}" type="video/mp4">
+    </video></div>
+    <div class="px-1"><p class="crime">Cam 3: {{ prediction3 }}</p><video height="180vh" autoplay>
+      <source src="{{ video2 }}" type="video/mp4">
+    </video></div>
+  </div>
+</div>
+
+
+  <div class="images">
+      <div class="floorplan">
+        <img src="../static/images/floorplan.png" alt="Floorplan" height="400" width="650" id="floorplan">
+      </div>
+      
+      <img src="{{ cam1 }}" alt="Cameras do not detect crime" height="60" width="80" id="normcam1">
+      <img src="{{ cam2 }}" alt="Cameras do not detect crime" height="60" width="80" id="normcam2">
+      <img src="{{ cam3 }}" alt="Cameras do not detect crime" height="60" width="80" id="normcam3">
+      <p id="label1">Cam 1</p>
+      <p id="label2">Cam 2</p>
+      <p id="label3">Cam 3</p>
+    </div>
+
+
+</body>
+</html>
